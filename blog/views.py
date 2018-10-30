@@ -21,3 +21,8 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'blog/signup.html', {'form': form})
+
+def movieSchedule(request):
+	
+	movie = Movie.objects.get(id=movie_id)
+	return render(request, 'blog/movieSchedule.html', {'movie: movie'})

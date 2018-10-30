@@ -21,4 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^$', views.base, name='base'),
+    url(r'^movieSchedule/', views.movieSchedule, name = 'movieSchedule'),
+   # url(r'^movieSchedule/(?P<movie_id>\d+)$', views.movieSchedule, name = 'movieSchedule'),
 ]
