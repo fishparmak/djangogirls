@@ -43,9 +43,8 @@ class Hall(models.Model):
         return self.name
 
 class Seat(models.Model):
-    seat_id = models.IntegerField(default=0)
     hall = models.ForeignKey('Hall', on_delete=models.CASCADE)
-    def __str__(self):
+    def __integer__(self):
         return self.id
 
 class MovieHall(models.Model):
