@@ -27,14 +27,13 @@ class Movie(models.Model):
     description = models.TextField(default='This is Movie description')
 
     def __str__(self):
-        return self.title
+        return self.name
 
 class Cinema(models.Model):
     name = models.CharField(max_length=200, default='Cinema')
     description = models.TextField(default='This is Cinema description')
-
     def __str__(self):
-        return self.title
+        return self.name
 
 class Hall(models.Model):
     name = models.CharField(max_length=200, default='Hall')
@@ -44,23 +43,26 @@ class Hall(models.Model):
         return self.name
 
 class Seat(models.Model):
-    sold = models.BooleanField(default='False')
+    seat_id = models.IntegerField(default=0)
     hall = models.ForeignKey('Hall', on_delete=models.CASCADE)
     def __str__(self):
         return self.id
 
 class MovieHall(models.Model):
-    time = models.TimeField(default= timezone.now())
+    time = models.DateTimeField(blank=True, null=True)
     hall = models.ForeignKey('Hall', on_delete=models.CASCADE)
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.movie.name
 
 class Ticket(models.Model):
+    sold = models.BooleanField(default='False')
     cost = models.DecimalField(default=5.99, max_digits = 6, decimal_places = 2)
     movieHall = models.ForeignKey('MovieHall', on_delete=models.CASCADE)
     seat = models.ForeignKey('Seat', on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.seat
+
