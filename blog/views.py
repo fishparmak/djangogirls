@@ -2,11 +2,11 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .models import Post
+from .models import Movie
 
 def base(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/base.html', {'posts': posts})
+    movies = Movie.objects.order_by("?")
+    return render(request, 'blog/base.html', {'movies': movies})
 
 def signup(request):
     if request.method == 'POST':
