@@ -17,7 +17,7 @@
                 <div class="col-md-8">
                 {% for movie in movies %}
                     <div class="post">
-                        <h1><a href="" class="movie__link" id="{{ movie.id }}">{{ movie.name }}</a></h1>
+                        <h1><a href=""  class="movie__link" data-id="{{ movie.id }}">{{ movie.name }}</a></h1>
                         <p>{{ movie.description|linebreaksbr }}</p>
                     </div>
                 {% endfor %}
@@ -25,11 +25,23 @@
             </div>
         </div>
     </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(".movie__link").click(function(){
-         alert("yes link clicked");
-         console.log("yo");
-     });
- </script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript">
+        $('.movie__link').click(function(){
+        var id;
+        id = $(this).attr("data-id");
+        $.ajax(
+        {
+            type:"GET",
+            url: "localhost/movieSchedule",
+            data:{
+                     movie_id: id
+            },
+            success: function( movie ) 
+            {
+                alert('success');
+            }
+         })
+    });
+    </script>
 </html>
