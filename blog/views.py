@@ -46,4 +46,8 @@ def order(request, ticket_id):
 	ticket.save()
 	return render(request,'blog/order.html',{'ticket':ticket})
 
+def cabinet(request):
+	tickets = Ticket.objects.filter(user = request.user)
+	return render(request,'blog/cabinet.html',{'tickets':tickets})
+
 

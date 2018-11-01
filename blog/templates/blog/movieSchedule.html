@@ -16,9 +16,8 @@
 		<hr>
 		
 	{% endfor %}
-
-
-
+<a  href="{% url 'cabinet' %}">show my tickets</a> <br>
+<a href="{% url 'base' %}">show afisha</a>
 
 </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -37,6 +36,8 @@
 		        $('.tickets__content_'+id).append(
 		        	'<a href="{% url 'buyTicket' ticket_id=ticket.id %}" data-id="{{ ticket.id }}">' + ' {{ticket}}, ' + '</a>' 
 		        );
+
+		        
 	    }
 	    {% endfor %}
 	    if(!exist){

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cabinet</title>
+</head>
+<body>
+	{% for ticket in tickets %}
+		<h2>Tiket № {{ticket}}</h2>
+		<p>cost:  {{ticket.cost}}</p>
+		<p>sold: {{ticket.sold}} </p>
+		<p>in {{ticket.movieHall.hall}} in {{ticket.movieHall.hall.cinema}}</p>
+		<p>
+		owner: {{ticket.user}}
+		</p>
+	{% endfor %} 
+	
+	
+	<hr>
+	
+     <a href="{% url 'base' %}">show afisha</a>
+	
+</body>
+
+
+</html>
