@@ -33,10 +33,15 @@
         	if({{ticket.movieHall.id}}==id){
         		exist = true;
 	        	console.log({{ticket.movieHall.id}}+ " t.mh");
-		        $('.tickets__content_'+id).append(
-		        	'<a href="{% url 'buyTicket' ticket_id=ticket.id %}" data-id="{{ ticket.id }}">' + ' {{ticket}}, ' + '</a>' 
-		        );
-
+	        	{%if ticket.sold %}
+			        $('.tickets__content_'+id).append(
+			        	'<a style="color:red;" href="{% url 'buyTicket' ticket_id=ticket.id %}" data-id="{{ ticket.id }}">' + ' {{ticket}}, ' + '</a>' 
+			        );
+			    {% else %}
+			    	$('.tickets__content_'+id).append(
+			        	'<a  style="color:green;"  href="{% url 'buyTicket' ticket_id=ticket.id %}" data-id="{{ ticket.id }}">' + ' {{ticket}}, ' + '</a>' 
+			        );
+			    {% endif %}
 		        
 	    }
 	    {% endfor %}
