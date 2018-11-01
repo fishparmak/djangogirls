@@ -15,7 +15,7 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-    def __str__(self):
+    def __integer__(self):
         return self.title
 
 
@@ -26,21 +26,21 @@ class Movie(models.Model):
     name = models.CharField(max_length=200, default='Movie')
     description = models.TextField(default='This is Movie description')
 
-    def __str__(self):
-        return self.name
+    def __integer__(self):
+        return self.id
 
 class Cinema(models.Model):
     name = models.CharField(max_length=200, default='Cinema')
     description = models.TextField(default='This is Cinema description')
-    def __str__(self):
-        return self.name
+    def __integer__(self):
+        return self.id
 
 class Hall(models.Model):
     name = models.CharField(max_length=200, default='Hall')
     cinema = models.ForeignKey('Cinema', on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.name
+    def __integer__(self):
+        return self.id
 
 class Seat(models.Model):
     hall = models.ForeignKey('Hall', on_delete=models.CASCADE)
@@ -52,8 +52,8 @@ class MovieHall(models.Model):
     hall = models.ForeignKey('Hall', on_delete=models.CASCADE)
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.movie.name
+    def __integer__(self):
+        return self.id
 
 class Ticket(models.Model):
     sold = models.BooleanField(default='False')
@@ -62,6 +62,6 @@ class Ticket(models.Model):
     seat = models.ForeignKey('Seat', on_delete=models.CASCADE)
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.seat
+    def __integer__(self):
+        return self.id
 
