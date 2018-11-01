@@ -53,15 +53,15 @@ class MovieHall(models.Model):
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.movie.name
+        return (str(self.movie) + str(':') + str(self.hall) + str('-------') + str(self.time))
 
 class Ticket(models.Model):
     sold = models.BooleanField(default='False')
     cost = models.DecimalField(default=5.99, max_digits = 6, decimal_places = 2)
     movieHall = models.ForeignKey('MovieHall', on_delete=models.CASCADE)
     seat = models.ForeignKey('Seat', on_delete=models.CASCADE)
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True, default='user')
 
     def __str__(self):
-        return self.seat
+        return str(self.seat)
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BuyTicket</title>
+</head>
+<body>
+	
+	<h2>Tiket № {{ticket}}</h2>
+	<p>cost:  {{ticket.cost}}</p>
+	<p>sold: {{ticket.sold}} </p>
+	<p>in {{ticket.movieHall.hall}} in {{ticket.movieHall.hall.cinema}}</p>
+	<p>
+	owner: {{ticket.user}}
+	</p>
+	<button class="tickets" data-id="{{ticket.id}}">show tickets</button>
+	<div class="tickets__content tickets__content_{{ticket.hall.id}}"></div>
+	<hr>
+		
+	
+</body>
+</html>
