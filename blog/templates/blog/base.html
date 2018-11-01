@@ -17,7 +17,7 @@
                 <div class="col-md-8">
                 {% for movie in movies %}
                     <div class="post">
-                        <h1><a href="#"  class="movie__link" data-id="{{ movie.id }}">{{ movie.name }}</a></h1>
+                        <h1><a href="{% url 'movieSchedule' movie_id=movie.id %}"  class="movie__link" data-id="{{ movie.id }}">{{ movie.name }}</a></h1>
                         <p>{{ movie.description|linebreaksbr }}</p>
                     </div>
                 {% endfor %}

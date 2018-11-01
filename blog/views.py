@@ -23,11 +23,8 @@ def signup(request):
     return render(request, 'blog/signup.html', {'form': form})
 
 
-def movieSchedule(request):
-	if request.method == 'GET':
-		movie_id = request.GET['movie_id']
-		return HttpResponse("Success!") # Sending an success response
-	else:
-		return HttpResponse("Request method is not a GET")
+def movieSchedule(request, movie_id):
+	movie = Movie.objects.get(id=movie_id)
+	return render(request,'blog/movieSchedule.html',{'movie':movie})
 
 
