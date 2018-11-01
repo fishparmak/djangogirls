@@ -26,11 +26,12 @@
     $('.seats').click(function(){
         var id;
         id = $(this).attr("data-id");
-        $('.seats__content').empty();
+        $('.seatxs__content').empty();
         {% for seat in seats %}
         	if({{seat.hall.id}}==id){
 	        $('.seats__content_'+id).append(
-	        	' {{seat}}, ' 
+	        	'<a href="{% url "buyTicket" seat_id=seat.id %}" data-id="{{ seat.id }}">' + 
+	        	' {{seat}}, ' + '</a>' 
 	        );
 	    }
 	    {% endfor %}

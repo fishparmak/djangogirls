@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^$', views.base, name='base'),
     url(r'^movieSchedule/(?P<movie_id>[0-9]+)$', views.movieSchedule, name = 'movieSchedule'),
+    url(r'^buyTicket/(?P<seat_id>[0-9]+)$', views.buyTicket, name = 'buyTicket'),
    # url(r'^movieSchedule/(?P<movie_id>\d+)$', views.movieSchedule, name = 'movieSchedule'),
 ]

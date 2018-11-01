@@ -35,4 +35,16 @@ def movieSchedule(request, movie_id):
 			movieHall.append(a)
 	return render(request,'blog/movieSchedule.html',{'movie':movie, 'movieHall': movieHall, 'seats':seats})
 
+def buyTicket(request, movie_id):
+	seats = Seat.objects.filter()
+	movie = Movie.objects.get(id=movie_id)
+	arr = MovieHall.objects.filter()
+	movie_id = int(movie_id)
+	movieHall = []
+	for a in arr:
+		temp = a.movie.id
+		if temp==movie_id:
+			movieHall.append(a)
+	return render(request,'blog/movieSchedule.html',{'movie':movie, 'movieHall': movieHall, 'seats':seats})
+
 
