@@ -2,7 +2,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .models import Movie, MovieHall
+from .models import Movie, MovieHall, Seat
 
 def base(request):
     movies = Movie.objects.order_by("?")
@@ -24,6 +24,7 @@ def signup(request):
 
 
 def movieSchedule(request, movie_id):
+	seats = Seat.objects.filter()
 	movie = Movie.objects.get(id=movie_id)
 	arr = MovieHall.objects.filter()
 	movie_id = int(movie_id)
@@ -32,6 +33,6 @@ def movieSchedule(request, movie_id):
 		temp = a.movie.id
 		if temp==movie_id:
 			movieHall.append(a)
-	return render(request,'blog/movieSchedule.html',{'movie':movie, 'movieHall': movieHall[0]})
+	return render(request,'blog/movieSchedule.html',{'movie':movie, 'movieHall': movieHall, 'seats':seats})
 
 

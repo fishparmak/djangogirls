@@ -6,10 +6,34 @@
 <body>
 	<h1>{{movie.name}}</h1>
 	<p>{{movie.descripton}}</p>
-	{{movieHall}}
-	{{movieHall.time}}
-	{{movieHall.hall}}
-	d
+
+	{% for mh in movieHall %}
+		<p> {{mh.time}}</p>
+		<p>{{mh.hall}} in {{mh.hall.cinema}}</p>
+		<button class="seats" data-id="{{mh.hall.id}}">show seats</button>
+		<div class="seats__content seats__content_{{mh.hall.id}}"></div>
+		<hr>
+		
+	{% endfor %}
+
+
+
 
 </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ <script type="text/javascript">
+   
+    $('.seats').click(function(){
+        var id;
+        id = $(this).attr("data-id");
+        $('.seats__content').empty();
+        {% for seat in seats %}
+        	if({{seat.hall.id}}==id){
+	        $('.seats__content_'+id).append(
+	        	' {{seat}}, ' 
+	        );
+	    }
+	    {% endfor %}
+    });
+    </script>		
 </html>
