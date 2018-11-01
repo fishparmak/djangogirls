@@ -12,10 +12,16 @@
 	<p>
 	owner: {{ticket.user}}
 	</p>
-	<button class="tickets" data-id="{{ticket.id}}">show tickets</button>
+	 {% if ticket.sold %}
+		<p style="color: red;">unavailable to buy</p>
+	 {%else%}
+	 	<button class="tickets" data-id="{{ticket.id}}">buy ticket</button>
+	 {% endif %}
 	<div class="tickets__content tickets__content_{{ticket.hall.id}}"></div>
 	<hr>
 		
 	
 </body>
+
+
 </html>

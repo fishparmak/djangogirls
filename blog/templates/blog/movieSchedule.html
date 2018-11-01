@@ -26,17 +26,22 @@
    
     $('.tickets').click(function(){
         var id;
+        var exist = false;
         id = $(this).attr("data-id");
         console.log(id+ "data-id");
         $('.tickets__content').empty();
         {% for ticket in tickets %}
         	if({{ticket.movieHall.id}}==id){
+        		exist = true;
 	        	console.log({{ticket.movieHall.id}}+ " t.mh");
 		        $('.tickets__content_'+id).append(
 		        	'<a href="{% url 'buyTicket' ticket_id=ticket.id %}" data-id="{{ ticket.id }}">' + ' {{ticket}}, ' + '</a>' 
 		        );
 	    }
 	    {% endfor %}
+	    if(!exist){
+	    	alert("No available tickets!");
+	    }
     });
     </script>		
 </html>
