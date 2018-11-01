@@ -5,7 +5,7 @@ from django.utils import timezone
 from .models import Movie
 
 def base(request):
-    movies = Movie.objects.reverse()
+    movies = Movie.objects.	order_by("?")
     return render(request, 'blog/base.html', {'movies': movies})
 
 def signup(request):
