@@ -15,11 +15,13 @@
 	 {% if ticket.sold %}
 		<p style="color: red;">unavailable to buy</p>
 	 {%else%}
-	 	<button class="tickets" data-id="{{ticket.id}}">buy ticket</button>
+	 	<a class="tickets" data-id="{{ticket.id}}" href="{% url 'order' ticket_id=ticket.id %}">order ticket</a>
 	 {% endif %}
+	
 	<div class="tickets__content tickets__content_{{ticket.hall.id}}"></div>
 	<hr>
-		
+	{% block content %}
+     {% endblock %}
 	
 </body>
 

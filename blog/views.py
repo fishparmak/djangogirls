@@ -39,4 +39,11 @@ def buyTicket(request, ticket_id):
 	ticket = Ticket.objects.get(id = ticket_id)
 	return render(request,'blog/buyTicket.html',{'ticket':ticket})
 
+def order(request, ticket_id):
+	ticket = Ticket.objects.get(id = ticket_id)
+	ticket.user = request.user
+	ticket.sold = True
+	ticket.save()
+	return render(request,'blog/order.html',{'ticket':ticket})
+
 

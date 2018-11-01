@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^$', views.base, name='base'),
     url(r'^movieSchedule/(?P<movie_id>[0-9]+)$', views.movieSchedule, name = 'movieSchedule'),
     url(r'^buyTicket/(?P<ticket_id>[0-9]+)$', views.buyTicket, name = 'buyTicket'),
+    url(r'^order/(?P<ticket_id>[0-9]+)$', views.order, name = 'order'),
    # url(r'^movieSchedule/(?P<movie_id>\d+)$', views.movieSchedule, name = 'movieSchedule'),
 ]
