@@ -1,18 +1,24 @@
 {% load static %}
 <html>
 	<head>
-	   <title>Django Girls blog</title>
-	   <link rel="stylesheet" href="{% static 'css/mystyles.css' %}">
+	   <title>ITinder</title>
 	   <meta charset="utf-8">
 	   <meta name="viewport" content="width=device-width, initial-scale=1">
+	   <link rel="stylesheet" href="{% static 'css/mystyles.css' %}">
+	   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 	</head>
-  <body class="page">
+  <body class="page has-background-light"">
   	<header class="page__header">
 		  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
 		  	<div class="container">
 		    	<div class="navbar-brand">
-			      <a class="navbar-item" href="#">
-			        <h1 class="title">ITinder</h1>
+			      <a class="navbar-item logo" href="#">
+			        <div class="brand-icon">
+			        	<img src="media/logo.png" alt="">
+			        </div>
+			        <div class="brand-content">
+			        	<h1 class="title">ITinder</h1>
+			        </div>
 			      </a>
 
 			      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -34,6 +40,9 @@
 			      			</button>
 			      		</div>
 			      	</form>
+			      	<a class="navbar-item is-active">
+			          Home
+			        </a>
 			        <a class="navbar-item">
 			          Teams
 			        </a>
