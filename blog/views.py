@@ -8,3 +8,6 @@ def base(request):
 
 def login(request):
     return render(request, 'blog/login.html')
+
+def home(request):
+    return render(request, 'blog/home.html')
