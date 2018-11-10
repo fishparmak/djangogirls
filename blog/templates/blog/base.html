@@ -5,16 +5,32 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/mystyles.css' %}">
     </head>
     <body>
-        <div class="page-header">
-            <h1><a href="/">Django Girls Blog</a></h1>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="box has-background-primary">
+                        First
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="box has-background-primary">
+                        Second
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="box has-background-primary">
+                        Third
+                    </div>
+                </div>
+            </div>
         </div>
 blablabla
     {% block content %}
    {% endblock %}
-        <div class="content container">
+        <!-- <div class="content container">
             <div class="row">
                 <div class="col-md-8">
                 {% for post in posts %}
@@ -28,6 +44,6 @@ blablabla
                 {% endfor %}
                 </div>
             </div>
-        </div>
+        </div> -->
     </body>
 </html>
