@@ -26,6 +26,7 @@ class Organization(models.Model):
     description = models.TextField( null=True, blank=True, default='Description')
     birth = models.DateField(default=datetime.date.today)
     created_date = models.DateField(default=datetime.date.today)
+    address = models.CharField(max_length=200,null=True, blank=True, default='Address')
 
     def __str__(self):
         return self.name
@@ -127,3 +128,34 @@ class UserRole(models.Model):
 
     def __str__(self):
         return self.role
+
+class Speaker(models.Model):
+    name = models.CharField(max_length=200,null=True, blank=True, default='Name')
+    description = models.TextField( null=True, blank=True, default='Description')
+    birth = models.DateField(default=datetime.date.today)
+    hackathon = models.ForeignKey('Hackathon', on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+class Case(models.Model):
+    name = models.CharField(max_length=200,null=True, blank=True, default='Name')
+    description = models.TextField( null=True, blank=True, default='Description')
+    hackathon = models.ForeignKey('Hackathon', on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+class Section(models.Model):
+    name = models.CharField(max_length=200,null=True, blank=True, default='Name')
+    description = models.TextField( null=True, blank=True, default='Description')
+
+    def __str__(self):
+        return self.name
+
+class SectionHack(models.Model):
+    section = models.ForeignKey('Section', on_delete=models.CASCADE, null=True, blank=True)
+    hackathon = models.ForeignKey('Hackathon', on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.section

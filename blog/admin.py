@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Organization, Hackathon, User, Team, Project, UserTeam, OrgHack, UserTeamHack, UserTeamProject, Role, Skill, Level, UserRole
+from .models import Post, Organization, Hackathon, User, Team, Project, UserTeam, OrgHack, UserTeamHack, UserTeamProject, Role, Skill, Level, UserRole, Speaker, Case, Section, SectionHack
 
 admin.site.register(Post)
 admin.site.register(Organization)
@@ -14,3 +14,7 @@ admin.site.register(UserTeamProject)
 admin.site.register(Role)
 admin.site.register(Skill)
 admin.site.register(UserRole)
+admin.site.register(Speaker)
+admin.site.register(Case)
+admin.site.register(Section)
+admin.site.register(SectionHack)
