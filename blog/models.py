@@ -29,6 +29,15 @@ class Organization(models.Model):
     def __str__(self):
         return self.name
 
+class Hackathon(models.Model):
+    name = models.CharField(max_length=200,null=True, blank=True, default='Name')
+    description = models.TextField( null=True, blank=True, default='Description')
+    date = models.DateField(default=datetime.date.today)
+    created_date = models.DateField(default=datetime.date.today)
+
+    def __str__(self):
+        return self.name
+
 class User(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     name = models.CharField(max_length=200,null=True, blank=True, default='Name')
@@ -49,13 +58,39 @@ class Team(models.Model):
     def __str__(self):
         return self.name
 
-class UserTeam(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE, null=True, blank=True)
-    team = models.ForeignKey('Team', on_delete=models.CASCADE, null=True, blank=True)
+class Project(models.Model):
     name = models.CharField(max_length=200,null=True, blank=True, default='Name')
     description = models.TextField( null=True, blank=True, default='Description')
-    birth = models.DateField(default=datetime.date.today)
     created_date = models.DateField(default=datetime.date.today)
 
     def __str__(self):
         return self.name
+
+class UserTeam(models.Model):
+    user = models.ForeignKey('User', on_delete=models.CASCADE, null=True, blank=True)
+    team = models.ForeignKey('Team', on_delete=models.CASCADE, null=True, blank=True)
+
+
+    def __str__(self):
+        return self.team
+
+class OrgHack(models.Model):
+    organization = models.ForeignKey('Organization', on_delete=models.CASCADE, null=True, blank=True)
+    hackathon = models.ForeignKey('Hackathon', on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return (str(self.organization) + str('-') + str(self.hackathon))
+
+class UserTeamHack(models.Model):
+    userteam = models.ForeignKey('UserTeam', on_delete=models.CASCADE, null=True, blank=True)
+    hackathon = models.ForeignKey('Hackathon', on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return (str(self.userTeam) + str('-') + str(self.hackathon))
+
+class UserTeamProject(models.Model):
+    userteam = models.ForeignKey('UserTeam', on_delete=models.CASCADE, null=True, blank=True)
+    project = models.ForeignKey('Project', on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return (str(self.userTeam) + str('-') + str(self.project))
