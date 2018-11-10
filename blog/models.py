@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 import datetime
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Post(models.Model):
@@ -94,3 +95,35 @@ class UserTeamProject(models.Model):
 
     def __str__(self):
         return (str(self.userTeam) + str('-') + str(self.project))
+
+class Role(models.Model):
+    name = models.CharField(max_length=200,null=True, blank=True, default='Name')
+    level = models.ForeignKey('Level', on_delete=models.CASCADE, null=True, blank=True)
+    description = models.TextField( null=True, blank=True, default='Description')
+
+    def __str__(self):
+        return self.name
+
+class Skill(models.Model):
+    name = models.CharField(max_length=200,null=True, blank=True, default='Name')
+    level = models.IntegerField(default=3,
+        validators=[MaxValueValidator(10), MinValueValidator(1)])
+    description = models.TextField( null=True, blank=True, default='Description')
+
+    def __str__(self):
+        return self.name
+
+class Level(models.Model):
+    name = models.CharField(max_length=200,null=True, blank=True, default='Name')
+    description = models.TextField( null=True, blank=True, default='Description')
+
+    def __str__(self):
+        return self.name
+
+class UserRole(models.Model):
+    user = models.ForeignKey('User', on_delete=models.CASCADE, null=True, blank=True)
+    role = models.ForeignKey('Role', on_delete=models.CASCADE, null=True, blank=True)
+
+
+    def __str__(self):
+        return self.role
