@@ -20,8 +20,8 @@
 							<tr>
 
 								<th>1</th>
-                                <td><img style="width:150px; border-radius: 80%;"src="{{team.img}}"/></td>
-								<td><a href="#">{{ team.name }}</a></td>
+                                <td><img style="width:150px; border-radius: 30%;"src="{{team.img}}"/></td>
+								<td><a style="font-size:18px;"href="{% url 'teamprof' team_id=team.id %}">{{ team.name }}</a></td>
 								<td>{{ team.created_date }}</td>
 								<td>100</td>
 								<td>25</td>

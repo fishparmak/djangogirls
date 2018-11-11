@@ -37,3 +37,7 @@ def teams(request):
     teams = Team.objects.filter().order_by('created_date')
     count = 0
     return render(request, 'blog/teams.html', {'teams':teams, 'count':count})
+
+def teamprof(request, team_id):
+    team = Team.objects.get(id = team_id)
+    return render(request, 'blog/teamprof.html', {'team':team})
