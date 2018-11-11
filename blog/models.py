@@ -53,6 +53,7 @@ class User(models.Model):
 
 
 class Team(models.Model):
+    max = models.IntegerField(default=5, null = True, blank = True)
     name = models.CharField(max_length=200,null=True, blank=True, default='Name')
     description = models.TextField( null=True, blank=True, default='Description')
     created_date = models.DateField(default=datetime.date.today)
@@ -69,7 +70,6 @@ class Project(models.Model):
         return self.name
 
 class UserTeam(models.Model):
-    max = models.IntegerField(default=5, null = True, blank = True)
     user = models.ForeignKey('User', on_delete=models.CASCADE, null=True, blank=True)
     team = models.ForeignKey('Team', on_delete=models.CASCADE, null=True, blank=True)
 
