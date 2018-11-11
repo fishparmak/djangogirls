@@ -69,6 +69,7 @@ class Project(models.Model):
         return self.name
 
 class UserTeam(models.Model):
+    max = models.IntegerField(default=5, null = True, blank = True)
     user = models.ForeignKey('User', on_delete=models.CASCADE, null=True, blank=True)
     team = models.ForeignKey('Team', on_delete=models.CASCADE, null=True, blank=True)
 
