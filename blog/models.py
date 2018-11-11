@@ -63,6 +63,7 @@ class Team(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=200,null=True, blank=True, default='Name')
     description = models.TextField( null=True, blank=True, default='Description')
+    likes = models.IntegerField( null=True, blank=True, default=0)
     created_date = models.DateField(default=datetime.date.today)
 
     def __str__(self):
