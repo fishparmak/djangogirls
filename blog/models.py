@@ -85,18 +85,18 @@ class OrgHack(models.Model):
         return (str(self.organization) + str('-') + str(self.hackathon))
 
 class UserTeamHack(models.Model):
-    userteam = models.ForeignKey('UserTeam', on_delete=models.CASCADE, null=True, blank=True)
+    team = models.ForeignKey('Team', on_delete=models.CASCADE, null=True, blank=True)
     hackathon = models.ForeignKey('Hackathon', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return (str(self.userteam) + str('-') + str(self.hackathon))
+        return (str(self.team) + str('-') + str(self.hackathon))
 
 class UserTeamProject(models.Model):
-    userteam = models.ForeignKey('UserTeam', on_delete=models.CASCADE, null=True, blank=True)
+    team = models.ForeignKey('Team', on_delete=models.CASCADE, null=True, blank=True)
     project = models.ForeignKey('Project', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return (str(self.userteam) + str('-') + str(self.project))
+        return (str(self.team) + str('-') + str(self.project))
 
 class Role(models.Model):
     name = models.CharField(max_length=200,null=True, blank=True, default='Name')
