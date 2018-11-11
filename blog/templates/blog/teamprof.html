@@ -1,3 +1,5 @@
+{% extends 'blog/base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,7 @@
 							<div class="level-left">
 								<div class="level-item">
 									<figure class="image is-96x96">
-									  <img style="width:200px;"class="is-rounded" src="{{team.img}}">
+									  <img style="max-width:100%;"class="is-rounded" src="{{team.img}}">
 									</figure>
 								</div>
 								<div class="level-item is-marginless">
@@ -117,15 +119,11 @@
 					<div class="box">
 						<h3 class="title is-3">Hackatons</h3>
 						<div class="box has-background-warning">
+                            {% for hack in hacks%}
 							<div class="box">
-								<p class="subtitle is-4">Lorem ipsum dolor sit amet.</p>
+								<p class="subtitle is-4">{{hack.hackathon}}</p>
 							</div>
-							<div class="box">
-								<p class="subtitle is-4">Lorem ipsum dolor sit amet.</p>
-							</div>
-							<div class="box">
-								<p class="subtitle is-4">Lorem ipsum dolor sit amet.</p>
-							</div>
+                            {% endfor %}
 						</div>
 					</div>
 				</div>
@@ -150,3 +148,4 @@
 	</section>
 </body>
 </html>
+{% endblock %}

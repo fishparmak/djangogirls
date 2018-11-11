@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, Hackathon, Project, Team
+from .models import Post, Hackathon, Project, Team, UserTeamHack
 
 def base(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -40,4 +40,6 @@ def teams(request):
 
 def teamprof(request, team_id):
     team = Team.objects.get(id = team_id)
-    return render(request, 'blog/teamprof.html', {'team':team})
+    name = team.name
+    hacks = UserTeamHack.objects.filter(team=team_id)
+    return render(request, 'blog/teamprof.html', {'team':team, 'hacks':hacks})
