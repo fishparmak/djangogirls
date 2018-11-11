@@ -9,32 +9,16 @@
 				<h2 class="title is-2">< Hackatons ></h2>
 				<div class="content">
 					<ul>
+                    {% for hack in hacks %}
 						<li>
-							<h3 class="title is-3">Hackatone#1</h3>
-							<p class="subtitle">Lorem ipsum dolor sit amet.</p>
+							<h3 class="title is-3">{{ hack.name }}</h3>
+							<p class="subtitle">{{ hack.description }}</p>
 							<div class="buttons">
 								<a href="#" class="button is-info is-rounded">Teams</a>
 								<a href="#" class="button is-success is-rounded">Enroll</a>
 							</div>
 						</li>
-						<hr class="hr">
-						<li>
-							<h3 class="title is-3">Hackatone#2</h3>
-							<p class="subtitle">Lorem ipsum dolor sit amet.</p>
-							<div class="buttons">
-								<a href="#" class="button is-info is-rounded">Teams</a>
-								<a href="#" class="button is-success is-rounded">Enroll</a>
-							</div>
-						</li>
-						<hr class="hr">
-						<li>
-							<h3 class="title is-3">Hackatone#3</h3>
-							<p class="subtitle">Lorem ipsum dolor sit amet.</p>
-							<div class="buttons">
-								<a href="#" class="button is-info is-rounded">Teams</a>
-								<a href="#" class="button is-success is-rounded">Enroll</a>
-							</div>
-						</li>
+                        {% endfor %}
 					</ul>
 				</div>
 			</div>
@@ -82,5 +66,5 @@
 		</div>
 	</div>
 </section>
-	
+
 {% endblock %}
