@@ -75,7 +75,7 @@ class UserTeam(models.Model):
 
 
     def __str__(self):
-        return self.team
+        return str(self.team)
 
 class OrgHack(models.Model):
     organization = models.ForeignKey('Organization', on_delete=models.CASCADE, null=True, blank=True)
@@ -128,7 +128,7 @@ class UserRole(models.Model):
 
 
     def __str__(self):
-        return self.role
+        return str(self.role)
 
 class Speaker(models.Model):
     name = models.CharField(max_length=200,null=True, blank=True, default='Name')
@@ -159,4 +159,4 @@ class SectionHack(models.Model):
     hackathon = models.ForeignKey('Hackathon', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return self.section
+        return str(self.section)
