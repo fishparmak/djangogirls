@@ -2,35 +2,37 @@
 {% block content %}
 	<section class="section">
 		<div class="container">
-			<table class="table is-striped">
-				<thead>
-					<tr>
-						<th><abbr title="Position">Pos</abbr></th>
-                        <th><abbr title="Avatar">Avatar</abbr></th>
-						<th><abbr title="Name">Name</abbr></th>
-						<th><abbr title="Reg">Registation</abbr></th>
-						<th><abbr title="Lvl">Level</abbr></th>
-						<th><abbr title="Rating">Rating</abbr></th>
-					</tr>
-				</thead>
-				<tbody>
-                        {% for team in teams %}
-					<tr>
-						<th style="vertical-align: middle;">1</th>
-                        <td style="vertical-align: middle;">
-						    <figure class="image is-48x48">
-							  <img class="is-rounded" src="{{team.img}}">
-							</figure>
-                        </td>
-						<td style="vertical-align: middle;"><a style="font-size:18px;"href="{% url 'teamprof' team_id=team.id %}">{{ team.name }}</a></td>
-						<td style="vertical-align: middle;">{{ team.created_date }}</td>
-						<td style="vertical-align: middle;">100</td>
-						<td style="vertical-align: middle;">25</td>
+			<div class="box">
+				<table class="table is-striped">
+					<thead>
+						<tr>
+							<th><abbr title="Position">Pos</abbr></th>
+	                        <th><abbr title="Avatar">Avatar</abbr></th>
+							<th><abbr title="Name">Name</abbr></th>
+							<th><abbr title="Reg">Registation</abbr></th>
+							<th><abbr title="Lvl">Level</abbr></th>
+							<th><abbr title="Rating">Rating</abbr></th>
+						</tr>
+					</thead>
+					<tbody>
+	                        {% for team in teams %}
+						<tr>
+							<th style="vertical-align: middle;">1</th>
+	                        <td style="vertical-align: middle;">
+							    <figure class="image is-48x48">
+								  <img class="is-rounded" src="{{team.img}}">
+								</figure>
+	                        </td>
+							<td style="vertical-align: middle;"><a style="font-size:18px;"href="{% url 'teamprof' team_id=team.id %}">{{ team.name }}</a></td>
+							<td style="vertical-align: middle;">{{ team.created_date }}</td>
+							<td style="vertical-align: middle;">100</td>
+							<td style="vertical-align: middle;">25</td>
 
-					</tr>
-                        {% endfor %}
-				</tbody>
-			</table>
+						</tr>
+	                        {% endfor %}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</section>
 {% endblock %}
