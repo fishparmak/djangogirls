@@ -2,36 +2,32 @@
 {% block content %}
 	<section class="section">
 		<div class="container">
-			<div class="hero">
-				<div class="hero-body">
-					<table class="table is-striped">
-						<thead>
-							<tr>
-								<th><abbr title="Position">Pos</abbr></th>
-                                <th><abbr title="Avatar">Avatar</abbr></th>
-								<th><abbr title="Name">Name</abbr></th>
-								<th><abbr title="Reg">Registation</abbr></th>
-								<th><abbr title="Lvl">Level</abbr></th>
-								<th><abbr title="Rating">Rating</abbr></th>
-							</tr>
-						</thead>
-						<tbody>
-                                {% for team in teams %}
-							<tr>
+			<table class="table is-striped">
+				<thead>
+					<tr>
+						<th><abbr title="Position">Pos</abbr></th>
+                        <th><abbr title="Avatar">Avatar</abbr></th>
+						<th><abbr title="Name">Name</abbr></th>
+						<th><abbr title="Reg">Registation</abbr></th>
+						<th><abbr title="Lvl">Level</abbr></th>
+						<th><abbr title="Rating">Rating</abbr></th>
+					</tr>
+				</thead>
+				<tbody>
+                        {% for team in teams %}
+					<tr>
 
-								<th>1</th>
-                                <td><img style="width:150px; border-radius: 30%;"src="{{team.img}}"/></td>
-								<td><a style="font-size:18px;"href="{% url 'teamprof' team_id=team.id %}">{{ team.name }}</a></td>
-								<td>{{ team.created_date }}</td>
-								<td>100</td>
-								<td>25</td>
+						<th>1</th>
+                        <td><img style="width:150px; border-radius: 30%;"src="{{team.img}}"/></td>
+						<td><a style="font-size:18px;"href="{% url 'teamprof' team_id=team.id %}">{{ team.name }}</a></td>
+						<td>{{ team.created_date }}</td>
+						<td>100</td>
+						<td>25</td>
 
-							</tr>
-                                {% endfor %}
-						</tbody>
-					</table>
-				</div>
-			</div>
+					</tr>
+                        {% endfor %}
+				</tbody>
+			</table>
 		</div>
 	</section>
 {% endblock %}
