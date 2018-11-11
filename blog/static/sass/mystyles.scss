@@ -14,7 +14,10 @@
 
 .table {
 	width: 100%;
-	overflow-x: scroll;
+}
+
+.scroll-x {
+	overflow-x: scroll !important;
 }
 
 .image > img {

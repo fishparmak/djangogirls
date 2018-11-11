@@ -6756,8 +6756,10 @@ label.panel-block {
   margin-right: 0.5em; }
 
 .table {
-  width: 100%;
-  overflow-x: scroll; }
+  width: 100%; }
+
+.scroll-x {
+  overflow-x: scroll !important; }
 
 .image > img {
   max-width: 100%;
