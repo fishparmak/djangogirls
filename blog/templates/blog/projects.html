@@ -79,12 +79,16 @@
 					<div class="columns">
                         {% for project in projects %}
 						<div class="column">
-							<div class="box" style="height: 400px">
+							<div class="box" style="min-height: 520px;">
                                  <b><h1>{{project.name}}</h1></b> Project
 
                                  <figure class="image">
                                  	<img src="{{ project.img}}" width="280" style="height: auto;" />
                                  </figure>
+                                 <p style=" font-size:15px;">
+                                     {{project.description}}
+                                 </p>
+                                 <h1 style="margin-top:10px;">Rating: {{project.likes}}</h1>
                             </div>
 						</div>
                         {% endfor %}
