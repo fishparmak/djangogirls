@@ -26,6 +26,7 @@ class Organization(models.Model):
     birth = models.DateField(default=datetime.date.today)
     created_date = models.DateField(default=datetime.date.today)
     address = models.CharField(max_length=200,null=True, blank=True, default='Address')
+    img = models.CharField(default='../media/org.jpg', max_length=300)
 
     def __str__(self):
         return self.name
@@ -35,6 +36,7 @@ class Hackathon(models.Model):
     description = models.TextField( null=True, blank=True, default='Description')
     date = models.DateField(default=datetime.date.today)
     created_date = models.DateField(default=datetime.date.today)
+    img = models.CharField(default='../media/hack.jpg', max_length=300)
 
     def __str__(self):
         return self.name
@@ -45,6 +47,7 @@ class User(models.Model):
     description = models.TextField( null=True, blank=True, default='Description')
     birth = models.DateField(default=datetime.date.today)
     created_date = models.DateField(default=datetime.date.today)
+    img = models.CharField(default='../media/user.jpg', max_length=300)
 
     def __str__(self):
         return self.name
@@ -52,7 +55,7 @@ class User(models.Model):
 
 
 class Team(models.Model):
-    img = models.CharField(default='../media/team.png')
+    img = models.CharField(default='../media/team.png', max_length=300)
     name = models.CharField(max_length=200,null=True, blank=True, default='Name')
     description = models.TextField( null=True, blank=True, default='Description')
     created_date = models.DateField(default=datetime.date.today)
@@ -66,6 +69,7 @@ class Project(models.Model):
     description = models.TextField( null=True, blank=True, default='Description')
     likes = models.IntegerField( null=True, blank=True, default=0)
     created_date = models.DateField(default=datetime.date.today)
+    img = models.CharField(default='../media/proj.jpg', max_length=300)
 
     def __str__(self):
         return self.name
