@@ -24,5 +24,4 @@ urlpatterns = [
     url(r'^$', views.base, name='base'),
     url(r'^login/$', views.login, name='login'),
     url(r'^home/$', views.home, name='home'),
-    url(r'^teams/$', views.teams, name='teams'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
