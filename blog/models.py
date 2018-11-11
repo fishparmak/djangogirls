@@ -96,7 +96,7 @@ class UserTeamProject(models.Model):
     project = models.ForeignKey('Project', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return (str(self.userTeam) + str('-') + str(self.project))
+        return (str(self.userteam) + str('-') + str(self.project))
 
 class Role(models.Model):
     name = models.CharField(max_length=200,null=True, blank=True, default='Name')
