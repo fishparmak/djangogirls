@@ -23,4 +23,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.base, name='base'),
     url(r'^login/$', views.login, name='login'),
+    url(r'^home/$', views.home, name='home'),
+    url(r'^projects/$', views.projects, name='projects'),
+    url(r'^teams/$', views.teams, name='teams'),
+    url(r'^teamprof/(?P<team_id>[0-9]+)$', views.teamprof, name = 'teamprof'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
