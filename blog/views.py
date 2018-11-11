@@ -29,8 +29,7 @@ def projects(request):
     for t in temp:
         projects.append(t)
         counter+=1
-        if counter==3:
-            break
+        
     return render(request, 'blog/projects.html',{'projects':projects})
 
 def teams(request):
