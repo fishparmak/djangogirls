@@ -47,4 +47,4 @@ def teamprof(request, team_id):
 def users(request):
     users = User.objects.filter()
     uroles = UserRole.objects.filter()
-    return render(request, 'blog/teamprof.html', {'users': users, 'uroles':uroles})
+    return render(request, 'blog/users.html', {'users': users, 'uroles':uroles})
