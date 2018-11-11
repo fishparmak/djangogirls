@@ -21,7 +21,6 @@ class Post(models.Model):
         return self.title
 
 class Organization(models.Model):
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     name = models.CharField(max_length=200,null=True, blank=True, default='Name')
     description = models.TextField( null=True, blank=True, default='Description')
     birth = models.DateField(default=datetime.date.today)
