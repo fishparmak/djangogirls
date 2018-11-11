@@ -11,3 +11,6 @@ def login(request):
 
 def home(request):
     return render(request, 'blog/home.html')
+
+def home(request):
+    return render(request, 'blog/teams.html')
