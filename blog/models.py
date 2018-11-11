@@ -89,7 +89,7 @@ class UserTeamHack(models.Model):
     hackathon = models.ForeignKey('Hackathon', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return (str(self.userTeam) + str('-') + str(self.hackathon))
+        return (str(self.userteam) + str('-') + str(self.hackathon))
 
 class UserTeamProject(models.Model):
     userteam = models.ForeignKey('UserTeam', on_delete=models.CASCADE, null=True, blank=True)
