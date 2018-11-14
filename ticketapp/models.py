@@ -20,9 +20,8 @@ class Room(models.Model):
 
 class Place(models.Model):
     number = models.IntegerField(default=1)
-    room = models.ForeignKey('Room', on_delete=models.CASCADE)
     def __str__(self):
-        return str(self.number) + ' place at ' + str(self.room)
+        return str(self.number)
 
 class Ticket(models.Model):
     price = models.DecimalField(default=2, decimal_places = 1, max_digits = 5)
@@ -32,6 +31,12 @@ class Ticket(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True, default='user')
     def __str__(self):
         return str(self.place)
+
+class PlaceRoom(models.Model):
+    room = models.ForeignKey('Room', on_delete=models.CASCADE)
+    place = models.ForeignKey('Place', on_delete=models.CASCADE)
+    def __str__(self):
+        return (str(self.room) + str('-') + str(self.place))
 
 class FilmRoom(models.Model):
     room = models.ForeignKey('Room', on_delete=models.CASCADE)

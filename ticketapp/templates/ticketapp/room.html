@@ -1,21 +1,23 @@
-{% load static %}
 <html>
     <head>
         <title>My Ticket Booking System</title>
 
     </head>
     <body>
-            <h1>Available Cinemas:</h1>
+            <h1>{{ room.title }} Schedule</h1>
+
             <ol>
-                {% for cinema in cinemas %}
+                {% for filmRoom in filmRooms %}
                 <li>
-                        <h2><a href="{% url 'cinema' cinema_id=cinema.id %}">{{ cinema.title }}</a></h2>
-                        <p>{{cinema.info }}</p>
+                        <h2><a>{{ filmRoom.film.title }}</a></h2>
+                        <p>{{filmRoom.film.info }}</p>
+
+                        time: {{filmRoom.time }}
+
                 </li>
                 {% endfor %}
             </ol>
 
-        <div class="movie__content"></div>
         <a  href="{% url 'cabinet' %}">show my tickets</a> <br>
     </body>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -34,17 +36,29 @@
        ol {
            display: flex;
            justify-content: space-between;
-           flex-wrap: wrap;
            margin-top: 30px;
            margin-bottom: 40px;
        }
 
        li {
-           margin: 5px;
-           font-size: 16px;
+           margin-right: 20px;
            border: 1px solid black;
-           width: 200px;
-           border-radius: 40%;
+          border-radius: 10%;
+           margin-bottom: 20px;
+           font-size: 16px
+           width: auto;
+           text-align: center;
+
+       }
+
+       .desc {
+            border: 1px solid black;
+       }
+
+        p {
+           font-size: 16px
+           width: auto;
+           max-width: 100%;
            text-align: center;
 
        }

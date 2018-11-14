@@ -1,39 +1,21 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from django.utils import timezone
-from .models import Film, FilmRoom, Place, Ticket
+from .models import Cinema, Film, FilmRoom, Place, Ticket, Room
 
 def base(request):
-    movies = Film.objects.order_by("?")
-    return render(request, 'ticketapp/base.html', {'movies': movies})
+    cinemas = Cinema.objects.filter()
+    return render(request, 'ticketapp/base.html', {'cinemas': cinemas})
 
-def signup(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('base')
-    else:
-        form = UserCreationForm()
-    return render(request, 'ticketapp/signup.html', {'form': form})
+def cinema(request, cinema_id):
+	rooms = Room.objects.filter(cinema=cinema_id)
+	cinema = Cinema.objects.get(id=cinema_id)
+	return render(request,'ticketapp/cinema.html',{'rooms':rooms, 'cinema': cinema})
 
-
-def movieSchedule(request, movie_id):
-	tickets = Ticket.objects.filter()
-	movie = Film.objects.get(id=movie_id)
-	arr = FilmRoom.objects.filter()
-	movie_id = int(movie_id)
-	movieRoom = []
-	for a in arr:
-		temp = a.movie.id
-		if temp==movie_id:
-			movieRoom.append(a)
-	return render(request,'ticketapp/movieSchedule.html',{'movie':movie, 'movieRoom': movieRoom, 'tickets':tickets})
+def room(request, room_id):
+	filmRooms = FilmRoom.objects.filter(room=room_id)
+	room = Room.objects.get(id=room_id)
+	return render(request,'ticketapp/room.html',{'room':room, 'filmRooms': filmRooms})
 
 def buyTicket(request, ticket_id):
 	ticket = Ticket.objects.get(id = ticket_id)
