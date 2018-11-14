@@ -2,11 +2,11 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .models import Movie, MovieHall, Seat, Ticket
+from .models import Film, FilmRoom, Place, Ticket
 
 def base(request):
-    movies = Movie.objects.order_by("?")
-    return render(request, 'blog/base.html', {'movies': movies})
+    movies = Film.objects.order_by("?")
+    return render(request, 'ticketapp/base.html', {'movies': movies})
 
 def signup(request):
     if request.method == 'POST':
@@ -20,34 +20,32 @@ def signup(request):
             return redirect('base')
     else:
         form = UserCreationForm()
-    return render(request, 'blog/signup.html', {'form': form})
+    return render(request, 'ticketapp/signup.html', {'form': form})
 
 
 def movieSchedule(request, movie_id):
 	tickets = Ticket.objects.filter()
-	movie = Movie.objects.get(id=movie_id)
-	arr = MovieHall.objects.filter()
+	movie = Film.objects.get(id=movie_id)
+	arr = FilmRoom.objects.filter()
 	movie_id = int(movie_id)
-	movieHall = []
+	movieRoom = []
 	for a in arr:
 		temp = a.movie.id
 		if temp==movie_id:
-			movieHall.append(a)
-	return render(request,'blog/movieSchedule.html',{'movie':movie, 'movieHall': movieHall, 'tickets':tickets})
+			movieRoom.append(a)
+	return render(request,'ticketapp/movieSchedule.html',{'movie':movie, 'movieRoom': movieRoom, 'tickets':tickets})
 
 def buyTicket(request, ticket_id):
 	ticket = Ticket.objects.get(id = ticket_id)
-	return render(request,'blog/buyTicket.html',{'ticket':ticket})
+	return render(request,'ticketapp/buyTicket.html',{'ticket':ticket})
 
 def order(request, ticket_id):
 	ticket = Ticket.objects.get(id = ticket_id)
 	ticket.user = request.user
 	ticket.sold = True
 	ticket.save()
-	return render(request,'blog/order.html',{'ticket':ticket})
+	return render(request,'ticketapp/order.html',{'ticket':ticket})
 
 def cabinet(request):
 	tickets = Ticket.objects.filter(user = request.user)
-	return render(request,'blog/cabinet.html',{'tickets':tickets})
-
-
+	return render(request,'ticketapp/cabinet.html',{'tickets':tickets})
