@@ -17,6 +17,11 @@ def room(request, room_id):
 	room = Room.objects.get(id=room_id)
 	return render(request,'ticketapp/room.html',{'room':room, 'filmRooms': filmRooms})
 
+def filmRoom(request, filmRoom_id):
+	tickets = Ticket.objects.filter(filmRoom=filmRoom_id)
+	filmRoom = FilmRoom.objects.get(id=filmRoom_id)
+	return render(request,'ticketapp/filmRoom.html',{'filmRoom':filmRoom, 'tickets': tickets})
+
 def buyTicket(request, ticket_id):
 	ticket = Ticket.objects.get(id = ticket_id)
 	return render(request,'ticketapp/buyTicket.html',{'ticket':ticket})

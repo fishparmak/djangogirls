@@ -4,19 +4,17 @@
 
     </head>
     <body>
-            <h1>{{ room.title }} Schedule</h1>
+            <h1>{{ filmRoom}} at {{ filmRoom.time|time:"H:i" }} ({{ filmRoom.time|date:"D d M" }} )</h1>
 
-            <ol>
-                {% for filmRoom in filmRooms %}
+            <p>{{ filmRoom.film.info }} </p>
+            <ul>
+                {% for ticket in tickets %}
                 <li>
-                        <h2><a href="{% url 'filmRoom' filmRoom_id=filmRoom.id %}">{{ filmRoom.film.title }}</a></h2>
-                        <p>{{filmRoom.film.info }}</p>
-
-                        time: {{filmRoom.time }}
+                        place <h2><a>{{ ticket }}</a></h2>
 
                 </li>
                 {% endfor %}
-            </ol>
+            </ul>
 
         <a  href="{% url 'cabinet' %}">show my tickets</a> <br>
     </body>
@@ -33,9 +31,10 @@
            width: auto;
        }
 
-       ol {
+       ul {
            display: flex;
-           justify-content: space-between;
+           justify-content: space-around;
+           flex-wrap: wrap;
            margin-top: 30px;
            margin-bottom: 40px;
        }
@@ -45,10 +44,9 @@
            border: 1px solid black;
           border-radius: 10%;
            margin-bottom: 20px;
-           font-size: 16px
-           padding: 50px;
+           font-size:
            width: auto;
-           height: auto;
+           max-height: 80px;
            text-align: center;
 
        }

@@ -43,4 +43,4 @@ class FilmRoom(models.Model):
     film = models.ForeignKey('Film', on_delete=models.CASCADE)
     time = models.DateTimeField(blank=True, null=True)
     def __str__(self):
-        return (str(self.film) + str(':') + str(self.room) + str('-------') + str(self.time))
+        return (str(self.film) + str(' in ') + str(self.room))
