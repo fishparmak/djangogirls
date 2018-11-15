@@ -5,19 +5,12 @@
 
     </head>
     <body>
-            <h1>Available Cinemas:</h1>
-            <ol>
-                {% for cinema in cinemas %}
-                <li>
-                        <h2><a href="{% url 'cinema' cinema_id=cinema.id %}">{{ cinema.title }}</a></h2>
-                        <p>{{cinema.info }}</p>
-                </li>
-                {% endfor %}
-            </ol>
+            <h1>{{ticket.user}}, Ticket for a {{ticket.place}} place has booked successfully.</h1>
+
 
         <div class="movie__content"></div>
         <hr>
-    <a class="button" href="{% url 'myTickets' %}">My Tickets</a>
+        <a class="button" href="{% url 'myTickets' %}">My Tickets</a>
     </body>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -45,7 +38,6 @@
            font-size: 16px;
            border: 1px solid black;
            width: 200px;
-           height: 120px;
            border-radius: 40%;
            text-align: center;
        }
@@ -69,7 +61,5 @@
            background-color: #cccccc;
            transition: 0.2s;
        }
-
-
    </style>
 </html>

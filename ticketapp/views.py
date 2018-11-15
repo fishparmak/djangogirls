@@ -26,13 +26,13 @@ def buyTicket(request, ticket_id):
 	ticket = Ticket.objects.get(id = ticket_id)
 	return render(request,'ticketapp/buyTicket.html',{'ticket':ticket})
 
-def order(request, ticket_id):
+def bookTicket(request, ticket_id):
 	ticket = Ticket.objects.get(id = ticket_id)
 	ticket.user = request.user
-	ticket.sold = True
+	ticket.booked = True
 	ticket.save()
-	return render(request,'ticketapp/order.html',{'ticket':ticket})
+	return render(request,'ticketapp/bookTicket.html',{'ticket':ticket})
 
-def cabinet(request):
+def myTickets(request):
 	tickets = Ticket.objects.filter(user = request.user)
-	return render(request,'ticketapp/cabinet.html',{'tickets':tickets})
+	return render(request,'ticketapp/myTickets.html',{'tickets':tickets})

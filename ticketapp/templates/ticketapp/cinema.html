@@ -16,7 +16,8 @@
                 {% endfor %}
             </ol>
 
-        <a  href="{% url 'cabinet' %}">show my tickets</a> <br>
+        <hr>
+    <a class="button" href="{% url 'myTickets' %}">My Tickets</a>
     </body>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -57,7 +58,26 @@
            width: auto;
            max-width: 100%;
            text-align: center;
+       }
 
+       .button {
+           color: black;
+
+           display: block;
+           font-size: 18px;
+           text-align: center;
+           width: 100%;
+           height: auto;
+           border: none;
+           background-color: #d9d9d9;
+       }
+       a {
+           text-decoration: none;
+       }
+       a:hover,a:active,a:focus,a:visited {
+           font-size: 26px;
+           background-color: #cccccc;
+           transition: 0.2s;
        }
    </style>
 </html>

@@ -23,8 +23,7 @@ urlpatterns = [
     url(r'^cinema/(?P<cinema_id>[0-9]+)$', views.cinema, name = 'cinema'),
     url(r'^room/(?P<room_id>[0-9]+)$', views.room, name = 'room'),
     url(r'^filmRoom/(?P<filmRoom_id>[0-9]+)$', views.filmRoom, name = 'filmRoom'),
-    url(r'^buyTicket/(?P<ticket_id>[0-9]+)$', views.buyTicket, name = 'buyTicket'),
-    url(r'^order/(?P<ticket_id>[0-9]+)$', views.order, name = 'order'),
-    url(r'^cabinet/$', views.cabinet, name='cabinet'),
+    url(r'^bookTicket/(?P<ticket_id>[0-9]+)$', views.bookTicket, name = 'bookTicket'),
+    url(r'^myTickets/$', views.myTickets, name='myTickets'),
    # url(r'^movieSchedule/(?P<movie_id>\d+)$', views.movieSchedule, name = 'movieSchedule'),
 ]
