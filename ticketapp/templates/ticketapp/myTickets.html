@@ -1,25 +1,78 @@
-<!DOCTYPE html>
+
 <html>
-<head>
-	<title>Cabinet</title>
-</head>
-<body>
-	{% for ticket in tickets %}
-		<h2>Tiket № {{ticket}}</h2>
-		<p>cost:  {{ticket.cost}}</p>
-		<p>sold: {{ticket.sold}} </p>
-		<p>in {{ticket.movieHall.hall}} in {{ticket.movieHall.hall.cinema}}</p>
-		<p>
-		owner: {{ticket.user}}
-		</p>
-	{% endfor %} 
-	
-	
-	<hr>
-	
-     <a href="{% url 'base' %}">show afisha</a>
-	
-</body>
+    <head>
+        <title>My Ticket Booking System</title>
+
+    </head>
+    <body>
+            <h1>My Tickets</h1>
+            <ul>
+                {% for ticket in tickets %}
+                <li>
+                        <h2> {{ticket.filmRoom}} </h2>
+                         <p>place: {{ticket.place }}</p>
+                         <p>price: ${{ticket.place }}</p>
+                          <p>date: {{ticket.filmRoom.time }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+
+        <div class="movie__content"></div>
+        <br>
+    <a class="button" href="{% url 'base' %}">Home</a>
+    </body>
 
 
+   <style>
+       body {
+           padding: 60px;
+       }
+
+       h1 {
+           text-align: center;
+           border: 2px solid black;
+           width: auto;
+       }
+
+       ul {
+           display: flex;
+           justify-content: space-between;
+           flex-wrap: wrap;
+           margin-top: 30px;
+           margin-bottom: 40px;
+       }
+
+       li {
+           margin: 5px;
+           font-size: 16px;
+           border: 1px solid black;
+           padding: 10px;
+           width: auto;
+           height: auto;
+           border-radius: 40%;
+           text-align: center;
+       }
+
+       .button {
+           color: black;
+
+           display: block;
+           font-size: 18px;
+           text-align: center;
+           width: 100%;
+           height: auto;
+           border: none;
+           background-color: #d9d9d9;
+       }
+       a {
+           text-decoration: none;
+       }
+       a:hover,a:active,a:focus,a:visited {
+           font-size: 26px;
+           background-color: #cccccc;
+           transition: 0.2s;
+       }
+
+
+   </style>
 </html>
