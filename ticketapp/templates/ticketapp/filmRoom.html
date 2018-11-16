@@ -12,8 +12,13 @@
                 {% for ticket in tickets %}
                 <li>
 
-                        place <h2><a href="{% url 'bookTicket' ticket_id=ticket.id %}">{{ ticket }}</a></h2>
-                        {% if ticket.booked %} sold {%endif%}
+                        place
+                        {% if ticket.booked %}
+                        <h2>{{ ticket }}</h2>
+                         sold
+                         {% else %}
+                         <h2><a href="{% url 'bookTicket' ticket_id=ticket.id %}">{{ ticket }}</a></h2>
+                        {%endif%}
 
 
                 </li>
